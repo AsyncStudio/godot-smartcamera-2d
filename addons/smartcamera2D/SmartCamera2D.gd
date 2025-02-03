@@ -40,6 +40,8 @@ var extra_position = Vector2.ZERO
 @onready var camera_flash: ColorRect
 
 func _ready():
+	if Engine.is_editor_hint():
+		return
 	CameraControl.apply_flash.connect(apply_camera_flash)
 	CameraControl.apply_shake.connect(apply_camera_shake)
 	zoom = default_zoom
